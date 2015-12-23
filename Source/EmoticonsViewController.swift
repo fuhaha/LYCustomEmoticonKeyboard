@@ -73,12 +73,12 @@ public class EmoticonsViewController: UIViewController, UICollectionViewDataSour
         return toolBar;
     }();
     
-    override func loadView() {
+    override public func loadView() {
         super.loadView();
         print("loadView++++++\(NSStringFromCGRect(self.view.frame))");
     }
     
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad();
         setupUI();
         print("viewDidLoad++++++\(NSStringFromCGRect(self.view.frame))");
@@ -88,7 +88,7 @@ public class EmoticonsViewController: UIViewController, UICollectionViewDataSour
         self.collectionView.registerClass(EmoticonCell.self, forCellWithReuseIdentifier: cellIdentifier);
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override public func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated);
         print("viewDidAppear++++++\(NSStringFromCGRect(self.view.frame))");
     }
@@ -111,11 +111,11 @@ public class EmoticonsViewController: UIViewController, UICollectionViewDataSour
     }
     
     // MARK: UICollectionDataSource
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    public func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return emoticonList.count;
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    public func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellIdentifier, forIndexPath: indexPath) as! EmoticonCell;
         let emo = self.emoticonList[indexPath.row];
         cell.emoticon = emo;
@@ -123,7 +123,7 @@ public class EmoticonsViewController: UIViewController, UICollectionViewDataSour
     }
     
     // MARK: UICollectinViewDelegate
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    public func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let emo = self.emoticonList[indexPath.row];
         let value = (emo.png == nil) ? emo.code : emo.png!;
         if ( value == nil || value!.isEmpty ) {

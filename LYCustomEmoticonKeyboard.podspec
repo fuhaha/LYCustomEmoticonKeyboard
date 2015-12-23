@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name     = 'LYCustomEmoticonKeyboard'
-s.version  = '2.0.0'
+s.version  = '1.0.1'
 s.license  = 'MIT'
 s.summary  = 'A custom emotion keybaord.'
 s.homepage = 'https://github.com/woshishui1243/LYCustomEmoticonKeyboard'
@@ -11,6 +11,6 @@ s.requires_arc = true
 s.platform = :ios, "8.0"
 
 s.source_files = 'Source/*'
-s.resource_bundles = 'Source/*.bundle', 'Source/*.xib'
+#s.resource_bundles = 'Source/*.bundle', 'Source/*.xib'
 
 end

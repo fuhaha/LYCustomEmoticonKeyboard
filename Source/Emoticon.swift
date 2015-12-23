@@ -61,11 +61,10 @@ public class Emoticon: NSObject, NSSecureCoding {
         return dict;
     }
     
-    static func supportsSecureCoding() -> Bool {
+    public static func supportsSecureCoding() -> Bool {
         return true;
     }
-    
-    func encodeWithCoder(aCoder: NSCoder) {
+  public func encodeWithCoder(aCoder: NSCoder) {
         aCoder.setValue(emoticon_group_name, forKey: "emoticon_group_name");
         aCoder.setValue(emoticon_group_path, forKey: "emoticon_group_path");
         aCoder.setValue(chs, forKey: "chs");
@@ -79,7 +78,7 @@ public class Emoticon: NSObject, NSSecureCoding {
         
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init();
         self.emoticon_group_name = aDecoder.valueForKey("emoticon_group_name") as? String;
         self.emoticon_group_path = aDecoder.valueForKey("emoticon_group_path") as? String;
