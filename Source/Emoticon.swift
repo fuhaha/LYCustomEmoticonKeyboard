@@ -21,13 +21,13 @@ public class Emoticon: NSObject, NSSecureCoding {
     /// 分组路径
     var emoticon_group_path: String?
     /// 中文字符
-    var chs: String?
+    public var chs: String?
     /// 图片名称
-    var png: String?
+    public var png: String?
     /// 表情类型
     var type: String?
     // emoji 转码后的字符
-    var emoji: String?
+    public var emoji: String?
     /// emoji 编码
     var code: String? {
         didSet {
