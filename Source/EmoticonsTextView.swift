@@ -1,3 +1,4 @@
+
 //
 //  EmoticonsTextView.swift
 //  LYCustomEmotionKeyboard
@@ -10,7 +11,7 @@ import UIKit
 
 public class EmoticonsTextView: UITextView {
     
-   public func insertEmoticon(emo: Emoticon) {
+    public func insertEmoticon(emo: Emoticon) {
         if let _ = emo.chs {
             let attrStr = EmoticonsAttachment.emoticonString(emo, height: font!.lineHeight);
             let textStr = NSMutableAttributedString(attributedString: self.attributedText);
@@ -29,7 +30,7 @@ public class EmoticonsTextView: UITextView {
         }
     }
     
-   public func fullText() -> String {
+    public func fullText() -> String {
         let text = self.attributedText;
         var strM = String();
         text.enumerateAttributesInRange(NSMakeRange(0, text.length), options: NSAttributedStringEnumerationOptions()) { (dict, range, _) -> Void in
@@ -43,6 +44,6 @@ public class EmoticonsTextView: UITextView {
         }
         return strM;
     }
-
-
+    
+    
 }

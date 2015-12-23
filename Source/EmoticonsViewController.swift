@@ -1,3 +1,4 @@
+
 //
 //  EmoticonsViewController.swift
 //  LYCustomEmotionKeyboard
@@ -21,22 +22,22 @@ public class EmoticonsViewController: UIViewController, UICollectionViewDataSour
     
     var emoticonList: [Emoticon]!;
     
-//    var dataList = [Emoticon]();
+    //    var dataList = [Emoticon]();
     
-   lazy var collectionView: UICollectionView = {
-    
+    lazy var collectionView: UICollectionView = {
+        
         let collectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: self.layout);
         collectionView.backgroundColor = UIColor.whiteColor();
         collectionView.pagingEnabled = true;
         collectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: self.cellIdentifier);
         collectionView.dataSource = self;
         collectionView.delegate = self;
-    
+        
         let gestureRecongnizer = UILongPressGestureRecognizer(target: self, action: "longPress:");
         collectionView.addGestureRecognizer(gestureRecongnizer);
-
+        
         return collectionView;
-    }();
+        }();
     
     lazy var layout: UICollectionViewFlowLayout = {
         let margin: CGFloat = 0;
@@ -44,12 +45,12 @@ public class EmoticonsViewController: UIViewController, UICollectionViewDataSour
         let w: CGFloat = UIScreen.mainScreen().bounds.size.width/count;
         let layout = UICollectionViewFlowLayout();
         layout.itemSize = CGSizeMake(w, w);
-//        layout.sectionInset = UIEdgeInsetsMake(4, 0, 0, 0)
+        //        layout.sectionInset = UIEdgeInsetsMake(4, 0, 0, 0)
         layout.minimumInteritemSpacing = 0;
         layout.minimumLineSpacing = 0;
         layout.scrollDirection = UICollectionViewScrollDirection.Horizontal;
         return layout;
-    }();
+        }();
     
     lazy var toolBar: UIToolbar = {
         let toolBar = UIToolbar();
@@ -71,7 +72,7 @@ public class EmoticonsViewController: UIViewController, UICollectionViewDataSour
         
         toolBar.items = items;
         return toolBar;
-    }();
+        }();
     
     override public func loadView() {
         super.loadView();
@@ -82,9 +83,9 @@ public class EmoticonsViewController: UIViewController, UICollectionViewDataSour
         super.viewDidLoad();
         setupUI();
         print("viewDidLoad++++++\(NSStringFromCGRect(self.view.frame))");
-
+        
         emoticonList = Emoticon.emoticonsList();
-
+        
         self.collectionView.registerClass(EmoticonCell.self, forCellWithReuseIdentifier: cellIdentifier);
     }
     
@@ -100,14 +101,14 @@ public class EmoticonsViewController: UIViewController, UICollectionViewDataSour
         // 设置自动布局
         collectionView.translatesAutoresizingMaskIntoConstraints = false;
         toolBar.translatesAutoresizingMaskIntoConstraints = false;
-
+        
         var cons = [NSLayoutConstraint]();
         cons += NSLayoutConstraint.constraintsWithVisualFormat("H:|-0-[collectionView]-0-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["collectionView": collectionView]);
         cons += NSLayoutConstraint.constraintsWithVisualFormat("H:|-0-[toolBar]-0-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["toolBar": toolBar]);
         cons += NSLayoutConstraint.constraintsWithVisualFormat("V:|-0-[collectionView]-0-[toolBar(44)]-0-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["collectionView": collectionView, "toolBar": toolBar]);
-//        
+        //
         view.addConstraints(cons)
-
+        
     }
     
     // MARK: UICollectionDataSource
@@ -155,7 +156,7 @@ public class EmoticonsViewController: UIViewController, UICollectionViewDataSour
         
         
         let groupInfoList = Emoticon.emoticonGroupList();
-
+        
         let groupNameInfo = ["仅显示", "默认", "Emoji", "浪小花"];
         var count = 0;
         for index in 0..<item.tag {
@@ -171,7 +172,7 @@ public class EmoticonsViewController: UIViewController, UICollectionViewDataSour
             let emoticons = groupInfo[groupName];
             number += emoticons!.count;
         }
-
+        
         let indexPath = NSIndexPath(forItem: count, inSection: 0);
         collectionView.scrollToItemAtIndexPath(indexPath, atScrollPosition: UICollectionViewScrollPosition.Left, animated: true);
     }
