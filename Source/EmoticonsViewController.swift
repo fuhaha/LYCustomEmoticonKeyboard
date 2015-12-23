@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EmoticonsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+public class EmoticonsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     var delegate: EmoticonsViewControllerDelegate?;
     
     var completion: ((emo: Emoticon)-> Void)?;

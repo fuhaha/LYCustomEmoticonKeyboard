@@ -8,9 +8,9 @@
 
 import UIKit
 
-class EmoticonsTextView: UITextView {
+public class EmoticonsTextView: UITextView {
     
-    func insertEmoticon(emo: Emoticon) {
+   public func insertEmoticon(emo: Emoticon) {
         if let _ = emo.chs {
             let attrStr = EmoticonsAttachment.emoticonString(emo, height: font!.lineHeight);
             let textStr = NSMutableAttributedString(attributedString: self.attributedText);
@@ -29,7 +29,7 @@ class EmoticonsTextView: UITextView {
         }
     }
     
-    func fullText() -> String {
+   public func fullText() -> String {
         let text = self.attributedText;
         var strM = String();
         text.enumerateAttributesInRange(NSMakeRange(0, text.length), options: NSAttributedStringEnumerationOptions()) { (dict, range, _) -> Void in

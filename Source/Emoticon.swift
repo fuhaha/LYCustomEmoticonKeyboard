@@ -9,7 +9,7 @@
 import Foundation
 
 
-class Emoticon: NSObject, NSSecureCoding {
+public class Emoticon: NSObject, NSSecureCoding {
     
     //最近表情默认存储位置
     static let LYCustomEmoticonRecentFilePath = (NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true).last as NSString!).stringByAppendingPathComponent("RecentEmoticons.data");
